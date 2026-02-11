@@ -1,17 +1,18 @@
-/* CSS Variables - Will be updated by JavaScript */
+/* CSS Variables - Updated for elegant Valentine theme */
 :root {
-    /* Colors */
-    --background-color-1: #ffafbd;
-    --background-color-2: #ffc3a0;
-    --button-color: #ff6b6b;
-    --button-hover: #ff8787;
-    --text-color: #ff4757;
+    /* Colors: Soft blush to rose, deep romantic accents */
+    --background-color-1: #ffebee;       /* Very soft pink */
+    --background-color-2: #f8bbd0;       /* Gentle rose */
+    --button-color: #c2185b;             /* Deep magenta-red */
+    --button-hover: #d81b60;             /* Softer hover pink-red */
+    --text-color: #ad1457;               /* Rich text red-pink */
+    --accent-glow: rgba(193, 24, 91, 0.15); /* Subtle glow */
 
-    /* Animations */
-    --float-duration: 15s;
-    --float-distance: 50px;
-    --bounce-speed: 0.5s;
-    --heart-explosion-size: 1.5;
+    /* Animations: Subtle & graceful */
+    --float-duration: 20s;               /* Slower for elegance */
+    --float-distance: 40px;              /* Less sideways */
+    --bounce-speed: 0.8s;                /* Gentle bounce */
+    --heart-explosion-size: 1.3;         /* Controlled explosion */
 }
 
 body {
@@ -21,17 +22,19 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, var(--background-color-1), var(--background-color-2));
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;  /* Clean modern body text */
     overflow-x: hidden;
+    color: var(--text-color);
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);  /* Slightly more opaque for readability */
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);  /* Softer shadow */
     text-align: center;
-    max-width: 600px;
+    max-width: 90%;
+    width: 600px;
     margin: 20px;
     overflow: visible !important;
 }
@@ -44,275 +47,169 @@ body {
     z-index: 1;
 }
 
-.heart, .bear {
+.heart {
     position: absolute;
-    font-size: 2rem;
+    font-size: 2.2rem;
     animation: float var(--float-duration) linear infinite;
+    opacity: 0.7;  /* Subtle transparency */
 }
 
 @keyframes float {
     0% {
-        transform: translateY(100vh) translateX(0);
+        transform: translateY(100vh) translateX(0) rotate(0deg);
     }
     100% {
-        transform: translateY(-100px) translateX(var(--float-distance));
+        transform: translateY(-120px) translateX(var(--float-distance)) rotate(360deg);
     }
 }
 
 .cute-btn {
     background: var(--button-color);
     border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 20px;
+    padding: 12px 28px;
+    margin: 12px;
+    border-radius: 50px;  /* More pill-shaped for elegance */
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
 }
 
 .cute-btn:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px);  /* Lift instead of scale for pro feel */
     background: var(--button-hover);
+    box-shadow: 0 8px 25px var(--accent-glow);
+}
+
+.cute-btn:active {
+    transform: translateY(0);
 }
 
 .hidden {
     display: none;
 }
 
-.disabled-btn {
-    opacity: 0.7;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
 .secret-answer {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    margin-top: 0;
-    opacity: 0.2;
-    transition: opacity 0.3s;
-    transform: scale(0.7);
+    bottom: 30px;
+    right: 30px;
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
+    transform: scale(0.8);
     z-index: 2;
-    animation: subtle-hint 2s infinite alternate;
-    animation-delay: 5s;
-}
-
-.secret-answer .cute-btn {
-    font-size: 0.8rem;
-    padding: 5px 10px;
 }
 
 .secret-answer:hover {
     opacity: 1;
-    animation: none;
+    transform: scale(1);
 }
 
 .love-meter {
-    position: relative;
     width: 100%;
-    margin: 20px auto;
-    overflow: visible;
-    padding: 10px 0;
+    margin: 25px auto;
+    padding: 15px 0;
 }
 
 .love-meter p {
-    font-size: 1.2em;
-    margin: 15px 0;
+    font-size: 1.25rem;
+    margin: 20px 0;
     color: var(--text-color);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .slider {
     width: 100%;
-    height: 25px;
-    background: linear-gradient(to right, #ff6b6b, #ff8787, #ffb8b8);
+    height: 12px;  /* Slimmer for elegance */
+    background: linear-gradient(to right, var(--button-color), var(--button-hover));
     -webkit-appearance: none;
     appearance: none;
+    border-radius: 6px;
     outline: none;
-    position: relative;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+    box-shadow: 0 2px 10px var(--accent-glow);
     transition: all 0.3s ease;
 }
 
-.slider:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
-}
-
-/* Ensure track is visible */
-.slider::-webkit-slider-runnable-track,
-.slider::-moz-range-track {
-    width: 100%;
-    height: 25px;
-    background: linear-gradient(to right, #ff6b6b, #ff8787, #ffb8b8);
-    border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-/* Ensure thumb is properly styled */
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 35px;
-    height: 35px;
-    background: linear-gradient(135deg, #ff4757, #ff6b6b);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
-    position: relative;
-    z-index: 10;
-    margin-top: -5px;
-    border: 3px solid white;
-    transition: all 0.2s ease;
-}
-
-.slider::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
-}
-
+.slider::-webkit-slider-thumb,
 .slider::-moz-range-thumb {
-    width: 35px;
-    height: 35px;
-    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    width: 28px;
+    height: 28px;
+    background: white;
+    border: 4px solid var(--button-color);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
-    position: relative;
-    z-index: 10;
-    border: 3px solid white;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
+.slider::-webkit-slider-thumb:hover,
 .slider::-moz-range-thumb:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    transform: scale(1.15);
+    border-color: var(--button-hover);
 }
 
 #extraLove {
-    color: #ff6b6b;
-    font-weight: bold;
-    animation: bounce 0.5s infinite alternate;
-    display: block;
-    padding: 5px 10px;
-    border-radius: 10px;
-    background: rgba(255, 107, 107, 0.1);
-    text-shadow: 0 2px 4px rgba(255, 71, 87, 0.2);
-    transition: all 0.3s ease;
-    margin-top: 5px;
-}
-
-#extraLove.super-love {
-    background: rgba(255, 107, 107, 0.2);
-    font-size: 1.2em;
-    padding: 8px 15px;
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.2);
+    color: var(--button-color);
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background: rgba(193, 24, 91, 0.08);
+    transition: all 0.4s ease;
 }
 
 #loveValue {
-    font-weight: bold;
-    color: #ff4757;
-    font-size: 1.3em;
-    transition: all 0.3s ease;
-}
-
-.love-value-container {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-
-@keyframes bounce {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.2);
-    }
+    font-weight: 700;
+    font-size: 1.4rem;
 }
 
 .hearts-explosion {
-    font-size: 2rem;
-    animation: explode 1s ease-out forwards;
-    margin-top: 30px;
+    font-size: 3rem;
+    animation: explode 1.2s ease-out forwards;
+    margin: 40px 0;
 }
 
 @keyframes explode {
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(var(--heart-explosion-size));
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    60% { transform: scale(var(--heart-explosion-size)) rotate(15deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
 h1, h2 {
-    font-family: Arial, sans-serif;
-    font-weight: 700;
+    font-family: 'Playfair Display', cursive;  /* Elegant script headings */
+    color: var(--text-color);
+    margin: 1.5rem 0;
 }
 
 h1 {
-    color: #ff6b6b;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 h2 {
-    color: #ff8787;
+    font-size: 2rem;
+    font-weight: 600;
 }
-
-.super-love {
-    font-size: 1.5em;
-    color: #ff4757;
-    font-weight: bold;
-    transform: scale(1.2);
-    display: inline-block;
-    text-shadow: 2px 2px 4px rgba(255, 71, 87, 0.3);
-}
-
 
 .celebration-text {
-    font-size: 3em;
-    color: #ff4757;
-    font-weight: bold;
-    margin: 30px 0;
-    animation: bounce var(--bounce-speed) infinite alternate;
-    text-shadow: 2px 2px 4px rgba(255, 71, 87, 0.3);
+    font-size: 2.8rem;
+    color: var(--text-color);
+    font-weight: 700;
+    margin: 40px 0;
+    animation: gentle-bounce var(--bounce-speed) infinite alternate;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
 }
 
-@keyframes subtle-hint {
-    0% { opacity: 0.2; }
-    100% { opacity: 0.3; }
+@keyframes gentle-bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
 }
 
+/* Hide music controls completely since disabled */
 .music-controls {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+    display: none;
 }
-
-.music-btn {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.music-btn:hover {
-    transform: scale(1.05);
-    background: var(--secondary-color);
-} 
